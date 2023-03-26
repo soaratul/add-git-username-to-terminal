@@ -18,7 +18,7 @@ PS1="$GREEN\u@\h$NO_COLOR:$BLUE\w$YELLOW\$(parse_git_branch)$NO_COLOR\$ "
 While working on a common laptop that was being used by more than one person,
 It was difficult to identify which username has been set for the project.
 And wrote this small function to display username before branch name like
-abc@xyz:~/Desktop/project-directory[Jonhn Doe](feature-branch)$
+> abc@xyz:~/Desktop/project-directory\[Jonhn Doe\](feature-branch)$
 ```
 function parse_git_username () {
   git config user.name
@@ -30,5 +30,5 @@ GREEN="\[\033[01;32m\]"
 BLUE="\[\033[01;34m\]"
 NO_COLOR="\[\033[00m\]"
 
-PS1="$GREEN\u@\h$NO_COLOR:$BLUE\w**$RED[\$(parse_git_username)]**$YELLOW\$(parse_git_branch)$NO_COLOR\$ "
+PS1="$GREEN\u@\h$NO_COLOR:$BLUE\w$RED[\$(parse_git_username)]$YELLOW\$(parse_git_branch)$NO_COLOR\$ "
 ```
