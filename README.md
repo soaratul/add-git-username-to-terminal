@@ -3,8 +3,8 @@ Add git name along with branch name in terminal
 
 I found this below function on stackoverflow for adding colorized branch name in terminal when you are in project directory.
 
-function parse_git_username () {
-  git config user.name
+function parse_git_branch () {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
  
 RED="\[\033[01;31m\]"
@@ -20,14 +20,10 @@ It was difficult to identify which username has been set for the project.
 And wrote this small function to display username before branch name like
 abc@xyz:~/Desktop/project-directory[Jonhn Doe](feature-branch)$
 
-function parse_git_branch () {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-
 function parse_git_username () {
   git config user.name
 }
- 
+
 RED="\[\033[01;31m\]"
 YELLOW="\[\033[01;33m\]"
 GREEN="\[\033[01;32m\]"
